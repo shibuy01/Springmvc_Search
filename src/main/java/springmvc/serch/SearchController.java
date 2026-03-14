@@ -17,6 +17,7 @@ public class SearchController {
 	public String home() {
 	   return "home";
 	}
+	
 
 	@RequestMapping("/search")
 	public RedirectView search(@RequestParam("query-box") String query) {
@@ -27,4 +28,5 @@ public class SearchController {
 		redirectView.setUrl(url);
 		return redirectView;
 	}
+	
 }
