@@ -1,6 +1,7 @@
 package springmvc.serch;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,11 @@ public class FormController {
 	
 //	@RequestMapping(path="/handleform" , method=RequestMethod.POST)
 	@PostMapping("/handleform")
-	public String foermHandler(@ModelAttribute("student") Student student) {
+	public String foermHandler(@ModelAttribute("student") Student student, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return"complex";
+		}
 		System.out.println(student);
 		return "sucess";
 	}
