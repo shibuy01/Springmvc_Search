@@ -1,12 +1,19 @@
 package springmvc.serch;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class SearchController {
+	
+	@RequestMapping("/user/{userId}")
+	public String getUserDetails(@PathVariable("userId") int userId) {
+		System.out.println(userId);
+		return "home";
+	}
 	
 	@RequestMapping("/")
 	public String index() {
