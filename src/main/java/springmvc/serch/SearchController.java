@@ -1,10 +1,12 @@
 package springmvc.serch;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -39,9 +41,10 @@ public class SearchController {
 		return redirectView;
 	}
 	
-	@ExceptionHandler({NullPointerException.class , NumberFormatException.class})
-	public String exceptionHandler() {
-		return"null_page";
-	}
+//	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
+//	@ExceptionHandler({NullPointerException.class , NumberFormatException.class})
+//	public String exceptionHandler() {
+//		return"null_page";
+//	}
 	
 }
