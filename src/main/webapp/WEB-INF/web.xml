@@ -3,9 +3,23 @@
   <display-name>Springmvc_Search</display-name>
   
   <servlet>
-  	<servlet-name>spring</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  </servlet>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-servlet.xml</param-value>
+    </init-param>
+
+    <load-on-startup>1</load-on-startup>
+
+    <multipart-config>
+        <max-file-size>5242880</max-file-size>
+        <max-request-size>5242880</max-request-size>
+        <file-size-threshold>0</file-size-threshold>
+    </multipart-config>
+
+</servlet>
   
   <servlet-mapping>
   	<servlet-name>spring</servlet-name>
