@@ -1,6 +1,7 @@
 package springmvc.serch;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,8 @@ public class SearchController {
 
 	@RequestMapping("/home")
 	public String home() {
+		String str = null;
+		System.out.println(str.length());
 	   return "home";
 	}
 	
@@ -34,6 +37,11 @@ public class SearchController {
 		RedirectView redirectView = new RedirectView();
 		redirectView.setUrl(url);
 		return redirectView;
+	}
+	
+	@ExceptionHandler({NullPointerException.class , NumberFormatException.class})
+	public String exceptionHandler() {
+		return"null_page";
 	}
 	
 }
