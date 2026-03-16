@@ -23,5 +23,20 @@ https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 <bean name="multipartResolver"
 	class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+	
+
+<mvc:interceptors>
+
+    <mvc:interceptor>
+    
+        <mvc:mapping path="/welcome"/>
+        <bean class="springmvc.serch.MyInterceptor"/>
+        
+    </mvc:interceptor>
+    
+</mvc:interceptors>
+
+
+	
 </beans>
  
